@@ -1,0 +1,360 @@
+/* =========================
+   Services
+========================= */
+
+.services {
+  --services-bg: #edf1f7;
+  --services-text: #07090d;
+  --services-muted: rgba(7, 9, 13, 0.62);
+  --services-border: rgba(7, 9, 13, 0.1);
+
+  padding: 120px 0;
+
+  background: var(--services-bg);
+
+  color: var(--services-text);
+}
+
+
+/* =========================
+   Section header
+========================= */
+
+.services-header {
+  margin-bottom: 64px;
+}
+
+
+.services-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 28px;
+}
+
+
+.services-eyebrow-line {
+  width: 44px;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: var(--c-accent);
+}
+
+
+.services-eyebrow-text {
+  color: var(--c-accent);
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+}
+
+
+.services-heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: end;
+
+  gap: 32px;
+}
+
+
+.services-title {
+  color: var(--services-text);
+
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+
+.services-intro {
+  max-width: 460px;
+
+  color: var(--services-muted);
+
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+
+/* =========================
+   Grid
+========================= */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 20px;
+}
+
+
+/* =========================
+   Card
+========================= */
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+
+  padding: 36px;
+
+  background: #ffffff;
+
+  border: 1px solid var(--services-border);
+
+  box-shadow: 0 2px 12px rgba(7, 9, 13, 0.06);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.service-card:hover {
+  border-color: var(--c-accent);
+
+  box-shadow: 0 8px 32px rgba(45, 156, 219, 0.1);
+}
+
+
+/* =========================
+   Icon
+========================= */
+
+.service-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  background: var(--c-accent-dim);
+
+  color: var(--c-accent);
+}
+
+
+.service-card-icon svg {
+  display: block;
+
+  width: 28px;
+  height: 28px;
+}
+
+
+/* =========================
+   Card content
+========================= */
+
+.service-card-title {
+  margin-bottom: 10px;
+
+  color: var(--services-text);
+
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+
+.service-card-description {
+  color: var(--services-muted);
+
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+
+/* =========================
+   Learn More
+========================= */
+
+.service-card-action {
+  margin-top: auto;
+}
+
+
+.service-learn-more {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 0;
+
+  border: 0;
+  background: none;
+
+  color: var(--c-accent);
+
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    gap 0.2s ease;
+}
+
+
+.service-learn-more:hover {
+  gap: 10px;
+
+  color: #2388c2;
+}
+
+
+.service-learn-more svg {
+  flex-shrink: 0;
+}
+
+
+/* =========================
+   Hidden cards
+========================= */
+
+.service-card-extra {
+  animation: fadeUp 0.45s ease both;
+  animation-delay: var(--reveal-delay, 0s);
+}
+
+
+/* =========================
+   View More
+========================= */
+
+.services-toggle-wrap {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 48px;
+}
+
+
+.services-toggle {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 15px 36px;
+
+  border: 1px solid var(--c-accent);
+
+  background: transparent;
+
+  color: var(--c-accent);
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+
+.services-toggle:hover {
+  background: var(--c-accent);
+
+  color: #ffffff;
+}
+
+
+.services-toggle svg {
+  transition: transform 0.2s ease;
+}
+
+
+.services-toggle.is-expanded svg {
+  transform: rotate(180deg);
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 768px) {
+
+  .services {
+    padding: 88px 0;
+  }
+
+
+  .services-header {
+    margin-bottom: 48px;
+  }
+
+
+  .services-heading {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+
+  .services-intro {
+    max-width: 100%;
+  }
+
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .services {
+    padding: 72px 0;
+  }
+
+
+  .service-card {
+    padding: 28px;
+  }
+
+
+  .services-title {
+    font-size: 36px;
+  }
+
+
+  .services-toggle {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+}

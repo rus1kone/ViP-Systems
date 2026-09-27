@@ -1,0 +1,88 @@
+/* =========================
+   Trusted By
+========================= */
+
+.trusted-by {
+  overflow: hidden;
+
+  padding: 14px 0;
+
+  background: #ffffff;
+
+  border-top: 1px solid rgba(7, 9, 13, 0.08);
+  border-bottom: 1px solid rgba(7, 9, 13, 0.08);
+}
+
+
+/* =========================
+   Marquee
+========================= */
+
+.partner-track {
+  display: flex;
+  align-items: center;
+
+  width: max-content;
+
+  animation: marquee 32s linear infinite;
+}
+
+.partner-track:hover {
+  animation-play-state: paused;
+}
+
+
+/* =========================
+   Logo group
+========================= */
+
+.partner-group {
+  display: flex;
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+
+.partner-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  padding: 0 52px;
+}
+
+
+.partner-item img {
+  display: block;
+
+  width: auto;
+  height: 71px;
+  max-width: 250px;
+
+  object-fit: contain;
+
+  opacity: 0.82;
+
+  transition: opacity 0.25s ease;
+}
+
+
+.partner-item img:hover {
+  opacity: 1;
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 768px) {
+
+  .partner-track {
+    animation-duration: 48s;
+  }
+
+}

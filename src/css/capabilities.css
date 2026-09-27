@@ -1,0 +1,230 @@
+/* =========================
+   Capabilities
+========================= */
+
+.capabilities {
+  padding: 120px 0;
+
+  background: var(--c-bg);
+}
+
+
+/* =========================
+   Header
+========================= */
+
+.capabilities-header {
+  margin-bottom: 72px;
+}
+
+
+.capabilities-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 28px;
+}
+
+
+.capabilities-eyebrow-line {
+  width: 44px;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: var(--c-accent);
+}
+
+
+.capabilities-eyebrow-text {
+  color: var(--c-accent);
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+}
+
+
+.capabilities-heading {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+
+  gap: 48px;
+}
+
+
+.capabilities-title {
+  flex: 0 0 auto;
+
+  color: var(--c-text);
+
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+
+.capabilities-intro {
+  max-width: 420px;
+
+  color: var(--c-text-muted);
+
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+
+/* =========================
+   Grid
+========================= */
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 1px;
+
+  border: 1px solid var(--c-border);
+
+  background: var(--c-border);
+}
+
+
+/* =========================
+   Cell
+========================= */
+
+.capability-cell {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+
+  min-width: 0;
+
+  padding: 36px 32px;
+
+  background: var(--c-surface);
+
+  transition: background-color 0.2s ease;
+}
+
+
+.capability-cell:hover {
+  background: var(--c-surface2);
+}
+
+
+/* =========================
+   Icon
+========================= */
+
+.capability-icon {
+  display: flex;
+
+  color: var(--c-accent);
+}
+
+
+.capability-icon svg {
+  display: block;
+
+  width: 24px;
+  height: 24px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================
+   Text
+========================= */
+
+.capability-title {
+  margin-bottom: 10px;
+
+  color: var(--c-text);
+
+  font-family: 'Barlow', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+
+.capability-description {
+  color: var(--c-text-muted);
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 1000px) {
+
+  .capabilities-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .capabilities {
+    padding: 88px 0;
+  }
+
+
+  .capabilities-header {
+    margin-bottom: 52px;
+  }
+
+
+  .capabilities-heading {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 20px;
+  }
+
+
+  .capabilities-intro {
+    max-width: 100%;
+  }
+
+}
+
+
+@media (max-width: 560px) {
+
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .capability-cell {
+    padding: 28px 24px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .capabilities {
+    padding: 72px 0;
+  }
+
+}

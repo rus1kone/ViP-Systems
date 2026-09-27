@@ -1,0 +1,327 @@
+/* =========================
+   About
+========================= */
+
+.about {
+  padding: 120px 0;
+
+  background: var(--c-surface);
+
+  border-top: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-border);
+}
+
+
+/* =========================
+   Layout
+========================= */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  gap: 80px;
+}
+
+
+/* =========================
+   Image
+========================= */
+
+.about-media {
+  position: relative;
+}
+
+
+.about-image-wrap {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 5 / 6;
+
+  overflow: hidden;
+}
+
+
+.about-image {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* Accent corners */
+
+.about-corner {
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  pointer-events: none;
+}
+
+
+.about-corner--top {
+  top: 0;
+  left: 0;
+
+  border-top: 2px solid var(--c-accent);
+  border-left: 2px solid var(--c-accent);
+}
+
+
+.about-corner--bottom {
+  right: 0;
+  bottom: 0;
+
+  border-right: 2px solid var(--c-accent);
+  border-bottom: 2px solid var(--c-accent);
+}
+
+
+/* =========================
+   Eyebrow
+========================= */
+
+.about-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 32px;
+}
+
+
+.about-eyebrow-line {
+  width: 44px;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: var(--c-accent);
+}
+
+
+.about-eyebrow-text {
+  color: var(--c-accent);
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   Heading
+========================= */
+
+.about-title {
+  margin-bottom: 36px;
+
+  color: var(--c-text);
+
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+
+/* =========================
+   Leadership message
+========================= */
+
+.about-message {
+  margin-bottom: 36px;
+
+  padding-left: 24px;
+
+  border-left: 2px solid var(--c-accent);
+}
+
+
+.about-message p {
+  margin-bottom: 20px;
+
+  color: var(--c-text-muted);
+
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+
+.about-message p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   Signature
+========================= */
+
+.about-signature {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+
+  margin-bottom: 52px;
+}
+
+
+.about-signature-name {
+  color: var(--c-text);
+
+  font-family: 'Barlow', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+.about-signature-role {
+  color: var(--c-text-dim);
+
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+
+/* =========================
+   Stats
+========================= */
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 1px;
+
+  background: var(--c-border);
+
+  border: 1px solid var(--c-border);
+}
+
+
+.about-stat {
+  padding: 28px 24px;
+
+  background: var(--c-surface2);
+}
+
+
+.about-stat-value {
+  margin-bottom: 6px;
+
+  color: var(--c-accent);
+
+  font-family: 'Barlow', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+
+.about-stat-label {
+  color: var(--c-text-muted);
+
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 900px) {
+
+  .about-grid {
+    grid-template-columns: 1fr;
+
+    gap: 56px;
+  }
+
+
+  .about-media {
+    max-width: 640px;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .about {
+    padding: 88px 0;
+  }
+
+
+  .about-grid {
+    gap: 48px;
+  }
+
+
+  .about-title {
+    margin-bottom: 32px;
+  }
+
+
+  .about-message {
+    padding-left: 20px;
+  }
+
+
+  .about-corner {
+    width: 90px;
+    height: 90px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .about {
+    padding: 72px 0;
+  }
+
+
+  .about-message p {
+    font-size: 15px;
+  }
+
+
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  .about-stat {
+    padding: 22px 18px;
+  }
+
+
+  .about-stat-value {
+    font-size: 34px;
+  }
+
+
+  .about-stat-label {
+    font-size: 11px;
+  }
+
+}

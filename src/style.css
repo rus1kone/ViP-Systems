@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@import './css/reset.css';
+@import './css/global.css';
+@import './css/header.css';
+@import './css/hero.css';
+@import './css/trusted-by.css';
+@import './css/services.css';
+@import './css/how-we-work.css';
+@import './css/markets.css';
+@import './css/capabilities.css';
+@import './css/about.css';
+@import './css/projects.css';
+@import './css/testimonial.css';
+@import './css/why-vip.css';
+@import './css/partners.css';
+@import './css/careers.css';
+@import './css/contact.css';
+@import './css/footer.css';

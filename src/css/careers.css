@@ -1,0 +1,321 @@
+/* =========================
+   Careers
+========================= */
+
+.careers {
+  position: relative;
+
+  padding: 120px 0;
+
+  overflow: hidden;
+
+  background: var(--c-bg);
+}
+
+
+/* =========================
+   Background
+========================= */
+
+.careers-background {
+  position: absolute;
+  inset: 0;
+
+  background-image: url('../assets/images/careers/careers-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.careers-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      105deg,
+      rgba(15, 17, 20, 0.97) 0%,
+      rgba(15, 17, 20, 0.85) 55%,
+      rgba(15, 17, 20, 0.6) 100%
+    );
+}
+
+
+/* =========================
+   Accent line
+========================= */
+
+.careers-accent {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 180px;
+  height: 2px;
+
+  background: var(--c-accent);
+}
+
+
+/* =========================
+   Layout
+========================= */
+
+.careers-inner {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  gap: 80px;
+}
+
+
+/* =========================
+   Eyebrow
+========================= */
+
+.careers-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 28px;
+}
+
+
+.careers-eyebrow-line {
+  width: 44px;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: var(--c-accent);
+}
+
+
+.careers-eyebrow-text {
+  color: var(--c-accent);
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   Content
+========================= */
+
+.careers-title {
+  margin-bottom: 28px;
+
+  color: var(--c-text);
+
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+
+.careers-description {
+  max-width: 440px;
+
+  margin-bottom: 48px;
+
+  color: var(--c-text-muted);
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.careers-button {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 17px 36px;
+
+  background: var(--c-accent);
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: background-color 0.2s ease;
+}
+
+
+.careers-button:hover {
+  background: #2388c2;
+}
+
+
+.careers-button svg {
+  flex-shrink: 0;
+}
+
+
+/* =========================
+   Benefits
+========================= */
+
+.careers-benefit {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 20px;
+
+  padding: 24px 0;
+
+  border-bottom: 1px solid var(--c-border);
+
+  transition: padding-left 0.18s ease;
+}
+
+
+.careers-benefit:hover {
+  padding-left: 10px;
+}
+
+
+.careers-benefit-dot {
+  width: 6px;
+  height: 6px;
+
+  margin-top: 8px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--c-accent);
+}
+
+
+.careers-benefit-title {
+  margin-bottom: 4px;
+
+  color: var(--c-text-muted);
+
+  font-family: 'Barlow', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+
+  transition: color 0.18s ease;
+}
+
+
+.careers-benefit:hover .careers-benefit-title {
+  color: var(--c-text);
+}
+
+
+.careers-benefit-description {
+  color: var(--c-text-dim);
+
+  font-size: 14px;
+  line-height: 1.6;
+
+  transition: color 0.18s ease;
+}
+
+
+.careers-benefit:hover .careers-benefit-description {
+  color: var(--c-text-muted);
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 900px) {
+
+  .careers-inner {
+    grid-template-columns: 1fr;
+
+    gap: 64px;
+  }
+
+
+  .careers-description {
+    max-width: 560px;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .careers {
+    padding: 88px 0;
+  }
+
+
+  .careers-inner {
+    gap: 52px;
+  }
+
+
+  .careers-accent {
+    width: 140px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .careers {
+    padding: 72px 0;
+  }
+
+
+  .careers-inner {
+    gap: 44px;
+  }
+
+
+  .careers-description {
+    margin-bottom: 36px;
+
+    font-size: 15px;
+  }
+
+
+  .careers-button {
+    width: 100%;
+
+    justify-content: center;
+
+    padding-inline: 22px;
+  }
+
+
+  .careers-benefit {
+    gap: 16px;
+  }
+
+}

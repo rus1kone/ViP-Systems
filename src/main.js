@@ -1,0 +1,11 @@
+import './style.css'
+
+import './js/navigation.js'
+import './js/hero.js'
+import './js/services.js'
+import './js/how-we-work.js'
+import './js/markets.js'
+import './js/projects.js'
+import './js/contact.js'
+import './js/modals.js'
+import './js/footer.js'

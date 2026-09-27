@@ -1,0 +1,681 @@
+/* =========================
+   Markets
+========================= */
+
+.markets {
+  --markets-bg: #edf1f7;
+  --markets-text: #07090d;
+  --markets-muted: rgba(7, 9, 13, 0.62);
+
+  padding: 120px 0;
+
+  background: var(--markets-bg);
+
+  color: var(--markets-text);
+}
+
+
+/* =========================
+   Header
+========================= */
+
+.markets-header {
+  margin-bottom: 64px;
+}
+
+
+.markets-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 28px;
+}
+
+
+.markets-eyebrow-line {
+  width: 44px;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: var(--c-accent);
+}
+
+
+.markets-eyebrow-text {
+  color: var(--c-accent);
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+}
+
+
+.markets-heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: end;
+
+  gap: 32px;
+}
+
+
+.markets-title {
+  color: var(--markets-text);
+
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+
+.markets-intro {
+  max-width: 440px;
+
+  color: var(--markets-muted);
+
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+
+/* =========================
+   Grid
+========================= */
+
+.markets-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 2px;
+}
+
+
+/* =========================
+   Market tile
+========================= */
+
+.market-tile {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: 300px;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  border: 0;
+
+  background: #07090d;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+
+.market-tile-image {
+  position: absolute;
+  inset: 0;
+
+  background-image: var(--market-image);
+  background-size: cover;
+  background-position: center;
+
+  filter: brightness(0.55);
+
+  transform: scale(1);
+
+  transition:
+    transform 0.5s ease,
+    filter 0.35s ease;
+}
+
+
+.market-tile-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(7, 9, 13, 0.8) 0%,
+      rgba(7, 9, 13, 0.05) 100%
+    );
+
+  transition: background 0.35s ease;
+}
+
+
+.market-tile-accent {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 2px;
+
+  background: var(--c-accent);
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform 0.35s ease;
+}
+
+
+.market-tile-content {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 2;
+
+  padding: 28px;
+}
+
+
+.market-tile-title {
+  margin-bottom: 8px;
+
+  color: var(--c-text);
+
+  font-family: 'Barlow', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+
+.market-tile-learn {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  color: var(--c-accent);
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  opacity: 0;
+
+  transform: translateY(6px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* =========================
+   Tile hover
+========================= */
+
+.market-tile:hover .market-tile-image,
+.market-tile:focus-visible .market-tile-image {
+  filter: brightness(0.75);
+
+  transform: scale(1.06);
+}
+
+
+.market-tile:hover .market-tile-overlay,
+.market-tile:focus-visible .market-tile-overlay {
+  background:
+    linear-gradient(
+      to top,
+      rgba(7, 9, 13, 0.94) 0%,
+      rgba(45, 156, 219, 0.1) 100%
+    );
+}
+
+
+.market-tile:hover .market-tile-accent,
+.market-tile:focus-visible .market-tile-accent {
+  transform: scaleX(1);
+}
+
+
+.market-tile:hover .market-tile-learn,
+.market-tile:focus-visible .market-tile-learn {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+
+/* =========================
+   Modal overlay
+========================= */
+
+.market-modal {
+  position: fixed;
+  inset: 0;
+
+  z-index: 2000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  overflow-y: auto;
+
+  background: rgba(0, 0, 0, 0.8);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+
+.market-modal.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+
+body.market-modal-open {
+  overflow: hidden;
+}
+
+
+/* =========================
+   Modal panel
+========================= */
+
+.market-modal-panel {
+  width: 100%;
+  max-width: 740px;
+  max-height: calc(100dvh - 48px);
+
+  overflow-y: auto;
+
+  background: var(--c-surface);
+
+  transform: translateY(12px) scale(0.99);
+
+  transition: transform 0.25s ease;
+}
+
+
+.market-modal.is-active .market-modal-panel {
+  transform: translateY(0) scale(1);
+}
+
+
+/* =========================
+   Modal image
+========================= */
+
+.market-modal-image {
+  position: relative;
+
+  height: 260px;
+
+  background-image: var(--market-modal-image);
+  background-size: cover;
+  background-position: center;
+}
+
+
+.market-modal-image::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(22, 26, 31, 0.95) 0%,
+      rgba(22, 26, 31, 0.1) 60%
+    );
+}
+
+
+.market-modal-header {
+  position: absolute;
+
+  left: 36px;
+  right: 36px;
+  bottom: 28px;
+
+  z-index: 2;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+
+.market-modal-title {
+  color: var(--c-text);
+
+  font-family: 'Barlow', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+
+/* =========================
+   Close
+========================= */
+
+.market-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4px;
+
+  flex-shrink: 0;
+
+  border: 0;
+
+  background: none;
+
+  color: var(--c-text-muted);
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+
+.market-modal-close:hover {
+  color: var(--c-text);
+}
+
+
+/* =========================
+   Modal body
+========================= */
+
+.market-modal-body {
+  padding: 36px;
+}
+
+
+.market-modal-description {
+  margin-bottom: 32px;
+
+  color: var(--c-text-muted);
+
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+
+.market-modal-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 16px;
+}
+
+
+.market-modal-eyebrow-line {
+  width: 28px;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: var(--c-accent);
+}
+
+
+.market-modal-eyebrow-text {
+  color: var(--c-accent);
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   Solutions
+========================= */
+
+.market-modal-solutions {
+  margin-bottom: 32px;
+}
+
+
+.market-modal-solution {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 12px 0;
+
+  border-bottom: 1px solid var(--c-border);
+
+  color: var(--c-text-muted);
+
+  font-size: 14px;
+}
+
+
+.market-modal-solution::before {
+  content: '';
+
+  width: 5px;
+  height: 5px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--c-accent);
+}
+
+
+/* =========================
+   Modal CTA
+========================= */
+
+.market-modal-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 14px 28px;
+
+  background: var(--c-accent);
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+  text-decoration: none;
+
+  transition: opacity 0.2s ease;
+}
+
+
+.market-modal-cta:hover {
+  opacity: 0.88;
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 900px) {
+
+  .markets-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .markets {
+    padding: 88px 0;
+  }
+
+
+  .markets-header {
+    margin-bottom: 48px;
+  }
+
+
+  .markets-heading {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+
+  .markets-intro {
+    max-width: 100%;
+  }
+
+}
+
+
+@media (max-width: 560px) {
+
+  .markets-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .market-tile {
+    height: 280px;
+  }
+
+
+  .market-tile-learn {
+    opacity: 1;
+
+    transform: none;
+  }
+
+
+  .market-modal {
+    align-items: flex-start;
+
+    padding: 16px;
+  }
+
+
+  .market-modal-panel {
+    max-height: calc(100dvh - 32px);
+  }
+
+
+  .market-modal-image {
+    height: 220px;
+  }
+
+
+  .market-modal-header {
+    left: 24px;
+    right: 24px;
+    bottom: 22px;
+  }
+
+
+  .market-modal-title {
+    font-size: 27px;
+  }
+
+
+  .market-modal-body {
+    padding: 24px;
+  }
+
+
+  .market-modal-cta {
+    width: 100%;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .markets {
+    padding: 72px 0;
+  }
+
+}
+
+
+
+.market-tile--sports {
+  --market-image: url('../assets/images/markets/sports.png');
+}
+
+.market-tile--government {
+  --market-image: url('../assets/images/markets/government.png');
+}
+
+.market-tile--multifamily {
+  --market-image: url('../assets/images/markets/multifamily.png');
+}
+
+.market-tile--hospitality {
+  --market-image: url('../assets/images/markets/hospitality.png');
+}
+
+.market-tile--commercial {
+  --market-image: url('../assets/images/markets/commercial.png');
+}
+
+.market-tile--education {
+  --market-image: url('../assets/images/markets/education.png');
+}
+
+.market-tile--energy {
+  --market-image: url('../assets/images/markets/energy.png');
+}
+
+.market-tile--developers {
+  --market-image: url('../assets/images/markets/developers.png');
+}

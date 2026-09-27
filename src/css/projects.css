@@ -1,0 +1,759 @@
+/* =========================
+   Projects
+========================= */
+
+.projects {
+  padding: 120px 0;
+
+  background: #edf1f7;
+}
+
+
+/* =========================
+   Header
+========================= */
+
+.projects-header {
+  margin-bottom: 64px;
+}
+
+
+.projects-heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: end;
+
+  gap: 32px;
+}
+
+
+.projects-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 28px;
+}
+
+
+.projects-eyebrow-line {
+  width: 44px;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: var(--c-accent);
+}
+
+
+.projects-eyebrow-text {
+  color: var(--c-accent);
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+
+  text-transform: uppercase;
+}
+
+
+.projects-title {
+  color: #07090d;
+
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+
+.projects-intro {
+  max-width: 380px;
+
+  color: rgba(7, 9, 13, 0.62);
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   Grid
+========================= */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 2px;
+}
+
+
+/* =========================
+   Project tile
+========================= */
+
+.project-tile {
+  position: relative;
+
+  height: 380px;
+
+  overflow: hidden;
+
+  background: var(--c-bg);
+
+  cursor: pointer;
+}
+
+
+.project-tile-image {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter:
+    saturate(0.82)
+    brightness(0.9)
+    contrast(1.06);
+
+  transform: scale(1);
+
+  transition: transform 0.55s ease;
+}
+
+
+.project-tile:hover .project-tile-image {
+  transform: scale(1.06);
+}
+
+
+/* =========================
+   Image positions
+========================= */
+
+.project-tile--waldorf .project-tile-image {
+  object-position: center 32%;
+}
+
+
+.project-tile--sofi .project-tile-image {
+  object-position: center 48%;
+}
+
+
+.project-tile--park-place .project-tile-image {
+  object-position: center 38%;
+}
+
+
+.project-tile--one-vanderbilt .project-tile-image {
+  object-position: center 68%;
+}
+
+
+.project-tile--mgm .project-tile-image {
+  object-position: center center;
+}
+
+
+.project-tile--hudson .project-tile-image {
+  object-position: center center;
+}
+
+
+.project-tile--bouldin .project-tile-image {
+  object-position: 25% 40%;
+}
+
+
+.project-tile--metronational .project-tile-image {
+  object-position: center 30%;
+}
+
+
+.project-tile--merrick .project-tile-image {
+  object-position: center 42%;
+}
+
+
+/* =========================
+   Overlay
+========================= */
+
+.project-tile-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(7, 9, 13, 0.78) 0%,
+      rgba(7, 9, 13, 0.12) 55%,
+      transparent 100%
+    );
+
+  transition: background 0.35s ease;
+}
+
+
+.project-tile:hover .project-tile-overlay {
+  background:
+    linear-gradient(
+      to top,
+      rgba(7, 9, 13, 0.98) 0%,
+      rgba(7, 9, 13, 0.82) 52%,
+      rgba(7, 9, 13, 0.22) 80%,
+      transparent 100%
+    );
+}
+
+
+/* =========================
+   Accent line
+========================= */
+
+.project-tile-accent {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 2px;
+
+  background: var(--c-accent);
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform 0.4s ease;
+}
+
+
+.project-tile:hover .project-tile-accent {
+  transform: scaleX(1);
+}
+
+
+/* =========================
+   Tile content
+========================= */
+
+.project-tile-content {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 2;
+
+  padding: 28px;
+
+  transform: translateY(8px);
+
+  transition: transform 0.35s ease;
+}
+
+
+.project-tile:hover .project-tile-content {
+  transform: translateY(0);
+}
+
+
+/* =========================
+   Scope tags
+========================= */
+
+.project-tile-tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  margin-bottom: 12px;
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+
+.project-tile:hover .project-tile-tags {
+  opacity: 1;
+}
+
+
+.project-tile-tag {
+  padding: 3px 8px;
+
+  border: 1px solid var(--c-accent);
+
+  color: var(--c-accent);
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   Tile text
+========================= */
+
+.project-tile-title {
+  margin-bottom: 4px;
+
+  color: var(--c-text);
+
+  font-family: 'Barlow', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+
+.project-tile-location {
+  color: var(--c-text-muted);
+
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+
+/* =========================
+   Project Lightbox
+========================= */
+
+.project-lightbox {
+  position: fixed;
+  inset: 0;
+
+  z-index: 2000;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 40px 24px;
+
+  overflow-y: auto;
+
+  background: rgba(0, 0, 0, 0.92);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+
+.project-lightbox.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+
+body.project-lightbox-open {
+  overflow: hidden;
+}
+
+
+/* =========================
+   Lightbox panel
+========================= */
+
+.project-lightbox-panel {
+  width: 100%;
+  max-width: 960px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--c-surface);
+}
+
+
+/* =========================
+   Top
+========================= */
+
+.project-lightbox-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+}
+
+
+/* =========================
+   Large image
+========================= */
+
+.project-lightbox-image {
+  min-height: 480px;
+
+  background-image: var(--project-lightbox-image);
+  background-size: cover;
+  background-position: var(--project-lightbox-position, center);
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   Details
+========================= */
+
+.project-lightbox-details {
+  position: relative;
+
+  padding: 44px;
+}
+
+
+.project-lightbox-close {
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4px;
+
+  border: 0;
+  background: none;
+
+  color: var(--c-text-muted);
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+
+.project-lightbox-close:hover {
+  color: var(--c-text);
+}
+
+
+/* =========================
+   Modal eyebrow
+========================= */
+
+.project-lightbox-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+
+.project-lightbox-eyebrow-line {
+  width: 28px;
+  height: 1px;
+
+  background: var(--c-accent);
+}
+
+
+.project-lightbox-eyebrow-text {
+  color: var(--c-accent);
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================
+   Modal title
+========================= */
+
+.project-lightbox-title {
+  margin-bottom: 8px;
+
+  color: var(--c-text);
+
+  font-family: 'Barlow', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+
+.project-lightbox-location {
+  margin-bottom: 32px;
+
+  color: var(--c-text-dim);
+
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+
+/* =========================
+   Scope
+========================= */
+
+.project-lightbox-scope-label {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 16px;
+}
+
+
+.project-lightbox-scope-line {
+  width: 24px;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: var(--c-accent);
+}
+
+
+.project-lightbox-scope-text {
+  color: var(--c-accent);
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+
+.project-lightbox-scope-item {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 10px 0;
+
+  border-bottom: 1px solid var(--c-border);
+
+  color: var(--c-text-muted);
+
+  font-size: 14px;
+}
+
+
+.project-lightbox-scope-item::before {
+  content: '';
+
+  width: 5px;
+  height: 5px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--c-accent);
+}
+
+
+/* =========================
+   Overview
+========================= */
+
+.project-lightbox-overview {
+  padding: 36px 44px;
+
+  background: var(--c-surface);
+
+  border-top: 1px solid var(--c-border);
+}
+
+
+.project-lightbox-overview-label {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 16px;
+}
+
+
+.project-lightbox-overview-line {
+  width: 24px;
+  height: 1px;
+
+  background: var(--c-accent);
+}
+
+
+.project-lightbox-overview-text {
+  color: var(--c-accent);
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+
+.project-lightbox-description {
+  color: var(--c-text-muted);
+
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 1000px) {
+
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .projects {
+    padding: 88px 0;
+  }
+
+
+  .projects-header {
+    margin-bottom: 48px;
+  }
+
+
+  .projects-heading {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+
+  .projects-intro {
+    max-width: 100%;
+  }
+
+
+  .project-lightbox {
+    padding: 20px;
+  }
+
+
+  .project-lightbox-top {
+    grid-template-columns: 1fr;
+  }
+
+
+  .project-lightbox-image {
+    min-height: 360px;
+  }
+
+
+  .project-lightbox-details {
+    padding: 36px 28px;
+  }
+
+
+  .project-lightbox-overview {
+    padding: 32px 28px;
+  }
+
+}
+
+
+@media (max-width: 560px) {
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .project-tile {
+    height: 360px;
+  }
+
+
+  .project-tile-tags {
+    opacity: 1;
+  }
+
+
+  .project-tile-content {
+    transform: none;
+  }
+
+
+  .project-lightbox {
+    padding: 0;
+  }
+
+
+  .project-lightbox-panel {
+    min-height: 100dvh;
+  }
+
+
+  .project-lightbox-image {
+    min-height: 300px;
+  }
+
+
+  .project-lightbox-details {
+    padding: 32px 20px;
+  }
+
+
+  .project-lightbox-overview {
+    padding: 28px 20px;
+  }
+
+
+  .project-lightbox-title {
+    padding-right: 28px;
+
+    font-size: 28px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .projects {
+    padding: 72px 0;
+  }
+
+}
